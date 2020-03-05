@@ -3,45 +3,69 @@
 @{
     ViewData["Title"] = "Постеры по теме";
 }
+    <link href="https://fonts.googleapis.com/css?family=Pangolin&display=swap" rel="stylesheet">
+<style>
+    body{
+        background-color: #f7f7f7;
+    }
+    .block{
+        background-color: white;
+        width: 350px;
+        /*display: flex;*/
+        margin: 10px;
+        text-align: center;
+        border: 2px solid lightgrey;
+        border-bottom: 5px solid lightgrey;
+        border-radius: 5%;
+        margin-bottom: 13px;
+    }
 
-<h1>Постеры по теме @ViewBag.CategoryName </h1>
+    .three {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-<p>
-    @Html.ActionLink("Добавить постер", "Create", new { topicId = @ViewBag.TopicId})
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Path)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Topic)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Path)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Topic.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Инфо</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    .poster{
+        width: 320px;
+        margin-top: 20px;
+        border-radius: 9px;
+    }
+
+    .price {
+        font-family: 'Pangolin', cursive;
+        font-size: 40px;
+    }
+
+    .buttons{
+        width: 31px;
+        margin: 7px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+</style>
+
+<body>
+    <h1 style="font-family: 'Pangolin', cursive; text-align: center; margin-top: 40px; margin-bottom: 30px; font-size: 50px">Постеры по теме "@ViewBag.TopicName" </h1>
+
+    <div class="three">
+        <div class="block" style="text-align: center; display: flex; align-items: center; justify-content: center">
+            <a href="https://localhost:5001/Posters/Create?topicId=@ViewBag.TopicId">
+                <img src="https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/grey.png"
+                     width="80" height="80" alt="Добавить постер" title="Добавить постер" style="margin-top: auto; margin-bottom: auto"
+                     onmouseover="this.src='https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/pink.png'; this.width=90; this.height=90;"
+                     onmouseout="this.src='https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/grey.png'; this.width=70; this.height=70;" /></a>
+            
+        </div>
+        @foreach (var item in Model)
+        {
+        <div class="block">
+            <img class="poster" src="https://infinityposters.s3.eu-north-1.amazonaws.com/@Html.DisplayFor(modelItem => item.Path)" alt="Poster image" /><br />
+
+            <a asp-action="Edit" asp-route-id="@item.Id"><img class="buttons" src="https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/unnamed.png" alt="Изменить" title="Изменить" /></a>
+            <a asp-action="Details" asp-route-id="@item.Id"><img class="buttons" src="https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/108message-find.png" alt="Инфо" title="Инфо"/></a>
+            <a asp-action="Delete" asp-route-id="@item.Id"><img class="buttons" src="https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/unnamed+(1).png" alt="Удалить" title="Удалить"/></a>
+            <p class="price">@Html.DisplayFor(modelItem => item.Price) грн</p>
+        </div>
+        }
+    </div>
+</body>
