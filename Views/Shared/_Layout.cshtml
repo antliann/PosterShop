@@ -8,29 +8,60 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Spartan:700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pangolin&display=swap" rel="stylesheet">
+    <style>
+        .a85 {
+            width: 100%;
+        }
+
+        .ima {
+            width: 6vw;
+            margin-right: 0.5vw;
+        }
+
+        .shops {
+            font-size: 1.5vw;
+            text-align: center;
+            margin-top: 2.5vw;
+            text-overflow: clip;
+            font-family: 'Pangolin', cursive;
+            margin-right: 5vw;
+            margin-left: 13vw;
+            color: darkblue;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav class=" navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3"  style="background-color: #F7FAA0">
             <div class="container" style="display: flex">
-                <a asp-controller="Topics" asp-action="Index"><img src="https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/2.png"
-                     alt="Infinity Posters" width="85" title="На главную"
-                     style="border-radius: 50%; margin-right: 10px; margin-bottom: 10px; margin-top: 10px"/></a>
+                <a class="ima" asp-controller="Topics" asp-action="Index">
+                    <img src="https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/2.png"
+                     alt="Infinity Posters" class="a85" title="На главную"
+                     style="border-radius: 50%; margin-bottom: 10px; margin-top: 10px"/>
+                </a>
 
-                <a class="navbar-brand" asp-area="" asp-controller="Topics" asp-action="Index" style="font-family: 'Neucha', cursive; font-size: 50px; text-align: center; vertical-align: middle; margin-left: 20px; margin-right: 400px; margin-top: 13px">Infinity Posters</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <a href="https://www.instagram.com/infinity.posters/" title="Наш Instagram"><img src="https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/Instagram_icon.png" alt="Instagram" width="50"  style="margin-top: 27px; margin-right: 10px"/></a>
-                <div style="font-family: 'Spartan', sans-serif; font-size: 15px; margin-top: 32px">
+                <div style="width: 30%">
+                    <a class="navbar-brand" asp-area="" asp-controller="Topics" asp-action="Index"
+                        style= "        font-family: 'Neucha', cursive;
+        /*font-size: 310%;*/
+        font-size: 3.1vw;
+        text-align: center;
+        margin-top: 1vw;
+        text-overflow: clip">
+                       Infinity Posters</a>
+                </div>
+
+                <a href="" class="shops">Наши магазины</a>
+                <a href="https://www.instagram.com/infinity.posters/" title="Наш Instagram"><img src="https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/Instagram_icon.png" alt="Instagram" style="width: 3.7vw; margin-top: 1.6vw; margin-right: 1vw"/></a>
+                <div style="        font-family: 'Spartan', sans-serif; font-size: 1vw; margin-top: 2.1vw">
                     +38(095)373-45-93<br />
                     +38(093)412-68-59
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

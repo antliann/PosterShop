@@ -39,7 +39,7 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Удалить" class="btn btn-danger"/> |
-        <a href="/Posters/Index/@Html.DisplayFor(model => model.TopicId)?">Назад к списку</a>
+        <a href="/Posters/Index/@Html.DisplayFor(model => model.TopicId)?name=@Html.DisplayFor(model => model.Topic.Name)">Назад к списку</a>
 
     </form>
 

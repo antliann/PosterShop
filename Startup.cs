@@ -53,10 +53,15 @@ namespace PosterShop
 
             app.UseEndpoints(endpoints =>
             {
+               //endpoints.MapControllerRoute(
+               //     name: "posters",
+               //     pattern: "{controller=Posters}/{action}/{id?}");
+
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Topics}/{action=Index}/{id?}");
-            });
+                    pattern: "{controller=Topics}/{action=Index}/{id?}",
+                    defaults: new { controller = "Topics" });
+        });
         }
     }
 }

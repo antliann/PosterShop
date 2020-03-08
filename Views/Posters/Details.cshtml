@@ -3,34 +3,58 @@
 @{
     ViewData["Title"] = "Инфо";
 }
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pangolin&display=swap" rel="stylesheet">
+<style>
+    .dd, dd{        
+        font-family: sans-serif;
+        font-size: 25px;
+    }
 
-<h1>Инфо</h1>
+    dt{
+        font-family: 'Nunito', sans-serif;
+        font-weight: 900;
+        font-size: 25px;
+    }
 
-<div>
-    <h4>Posters</h4>
+    h1{
+        margin-bottom: 20px;
+        margin-top: 20px;
+        font-family: 'Pangolin', cursive;
+        margin-left: 18%;
+        font-size: 40px
+    }
+</style>
+
+<h1>Информация</h1>
+
+<div style="display: flex">
     <hr />
+    <img style="width: 600px; height: 424px; margin-right: 30px; border-radius: 10px" src="https://infinityposters.s3.eu-north-1.amazonaws.com/@Html.DisplayFor(model => model.Path)" alt="Poster image" />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-5">
             @Html.DisplayNameFor(model => model.Path)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Path)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-5">
             @Html.DisplayNameFor(model => model.Price)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
+        <dd class="col-sm-10">
+            <b style="font-size: 40px; font-family: 'Nunito', sans-serif;">@Html.DisplayFor(model => model.Price) грн</b>
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-5">
             @Html.DisplayNameFor(model => model.Topic)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Topic.Name)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Topic.Name)<br />
+        </dd>
+        <dt class="col-sm-5">
+            <a asp-action="Edit" asp-route-id="@Model.Id">Изменить</a>
+        </dt>
+        <dd class="dd col-sm-10">
+            <a asp-action="Index">Назад к списку</a>
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Изменить</a> |
-    <a asp-action="Index">Назад к списку</a>
 </div>

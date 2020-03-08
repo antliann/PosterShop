@@ -158,7 +158,9 @@ namespace PosterShop.Controllers
             var posters = await _context.Posters.FindAsync(id);
             _context.Posters.Remove(posters);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            //return RedirectToAction(nameof(Index));
+            int topicId = posters.TopicId;
+            return RedirectToAction("Index", "Posters", new { id = topicId, name = _context.Topics.Where(c => c.Id == topicId).FirstOrDefault().Name });
         }
 
         private bool PostersExists(int id)
