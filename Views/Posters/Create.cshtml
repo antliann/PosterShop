@@ -6,7 +6,7 @@
 
 <h1>Добавить в категорию @ViewBag.TopicName</h1>
 
-<h4>Posters</h4>
+<h4>Постеры</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Path" class="control-label"></label>
-                <input asp-for="Path" class="form-control" required pattern="Posters/Images/.+jpg" />
+                <input asp-for="Path" class="form-control" />
                 <span asp-validation-for="Path" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -33,7 +33,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Назад к списку</a>
+    <a href="/Posters/Index/@ViewBag.TopicId?name=@ViewBag.TopicName">Назад к списку</a>
 </div>
 
 @section Scripts {

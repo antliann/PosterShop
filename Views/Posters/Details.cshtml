@@ -54,7 +54,7 @@
             <a asp-action="Edit" asp-route-id="@Model.Id">Изменить</a>
         </dt>
         <dd class="dd col-sm-10">
-            <a asp-action="Index">Назад к списку</a>
+            <a href="/Posters/Index/@Html.DisplayFor(model => model.TopicId)?name=@Html.DisplayFor(model => model.Topic.Name)">Назад к списку</a>
         </dd>
     </dl>
 </div>
