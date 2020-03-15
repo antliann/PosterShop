@@ -6,27 +6,34 @@
 
     <h2>Магазин по адресу @Html.DisplayFor(model => model.Address)</h2>
 
-<div>
-
-    <hr />
-    <br />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Worktime)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Worktime)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Изменить</a> |
-    <a asp-action="Delete" asp-route-id="@Model.Id">Удалить</a> |
-    <a asp-action="Index">Назад к списку</a>
-</div>
+    <div>
+        <br />
+        <br />
+        <div style="margin-left: 50px">
+            <a href="https://www.google.com/maps/place/@Html.DisplayFor(model => model.Address)+Киев/" title="Google Maps" alt="Google Maps" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Google_Maps_Logo_2020.svg/1200px-Google_Maps_Logo_2020.svg.png"
+                     alt="Google Maps" width="200" />
+            </a>
+        </div>
+        <br />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Worktime)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Worktime)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <b style="font-size: 20px"><a asp-action="Edit" asp-route-id="@Model.Id">Изменить</a> | </b>
+        <b style="font-size: 20px"><a asp-action="Delete" asp-route-id="@Model.Id">Удалить</a> | </b>
+        <a asp-action="Index" style="font-size: 20px">Назад к списку</a>
+    </div>
+ 

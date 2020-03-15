@@ -135,7 +135,8 @@ namespace PosterShop.Controllers
         }
 
         // POST: Topics/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]              // добавить удаление вложенный постеров
+
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
