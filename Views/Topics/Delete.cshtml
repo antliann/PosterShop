@@ -1,24 +1,19 @@
 ﻿@model PosterShop.Topics
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Удалить тему";
 }
-
+    <link href="https://fonts.googleapis.com/css?family=Pangolin&display=swap" rel="stylesheet">
 <h2>Вы подтверждаете удаление?</h2>
 <br />
-<h3 style="color: red; text-align: center">Внимание! Удаление темы приведет к удалению всех находящихся в ней постеров!</h3>
-
+<div style="display: flex; margin: 80px; margin-top: 0px; margin-bottom: 10px">
+    <img src="https://www.remadays.com/wp-content/uploads/2016/07/uwaga.jpg" alt="" width="100"/>
+    <h3 style="color: red; text-align: center">Внимание! Удаление темы приведет к удалению всех находящихся в ней постеров!</h3>
+</div>
 <div>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-    </dl>
-    
+    <br />
+    <b style="font-size: 38px; font-family: 'Pangolin', cursive;">Тема: @Html.DisplayFor(model => model.Name)</b>
+    <br />
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Удалить" class="btn btn-danger" />
