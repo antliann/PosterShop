@@ -4,43 +4,40 @@
     ViewData["Title"] = "Удалить";
 }
 
-<h1>Удалить</h1>
 
-<h3>Вы действительно хотите удалить?</h3>
-<div>
-    <h4>Posters</h4>
+<h2 style="color: red">Вы действительно хотите удалить этот постер?</h2>
+<br />
+<div style="display: flex">
     <hr />
+    <img style="width: 500px; height: 353.6px; margin-right: 30px; border-radius: 8px"
+         src="https://infinityposters.s3.eu-north-1.amazonaws.com/@Html.DisplayFor(model => model.Path)" alt="Poster image" />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class="col-sm-10">
             @Html.DisplayNameFor(model => model.Path)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Path)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-10">
             @Html.DisplayNameFor(model => model.Price)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Price)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-10">
             @Html.DisplayNameFor(model => model.Topic)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Topic.Name)
         </dd>
+        <dt class="col-sm-10">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Удалить" class="btn btn-danger" />
+            </form>
+        </dt>
+        <dd class="col-sm-10">
+            <a href="/Posters/Index/@Html.DisplayFor(model => model.TopicId)?name=@Html.DisplayFor(model => model.Topic.Name)">Назад к списку</a>
+        </dd>
     </dl>
-    <script type="text/javascript">
-       // elem.onclick = function() {
-   // location.href="/Posters/Index/@Html.DisplayFor(model => model.TopicId)?";
-        // onclick='location.href="/Posters/Index/@Html.DisplayFor(model => model.TopicId)?"'
- // };
-    </script>
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Удалить" class="btn btn-danger"/> |
-        <a href="/Posters/Index/@Html.DisplayFor(model => model.TopicId)?name=@Html.DisplayFor(model => model.Topic.Name)">Назад к списку</a>
-
-    </form>
-
 </div>

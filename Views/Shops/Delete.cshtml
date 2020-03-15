@@ -1,0 +1,30 @@
+﻿@model PosterShop.Shops
+
+@{
+    ViewData["Title"] = "Удалить мазагин";
+}
+
+<h2 style="color: red">Вы действительно хотите удалить магазин?</h2>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Worktime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Worktime)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад к списку</a>
+    </form>
+</div>

@@ -57,13 +57,14 @@
     <h1>Постеры по теме "@ViewBag.TopicName"</h1>
     <div class="three">
         <div class="block" style="text-align: center; display: flex; align-items: center; justify-content: center">
-            <a href="https://localhost:5001/Posters/Create?topicId=@ViewBag.TopicId">
+            <a href="/Posters/Create?topicId=@ViewBag.TopicId">
                 <img src="https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/grey.png"
                      width="80" height="80" alt="Добавить постер" title="Добавить постер" style="margin-top: auto; margin-bottom: auto"
                      onmouseover="this.src='https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/pink.png'; this.width=90; this.height=90;"
                      onmouseout="this.src='https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/grey.png'; this.width=70; this.height=70;" /></a>
             
         </div>
+
         @foreach (var item in Model)
         {
         <div class="block">

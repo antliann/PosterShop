@@ -30,9 +30,10 @@
 
 <div style="display: flex">
     <hr />
-    <img style="width: 600px; height: 424px; margin-right: 30px; border-radius: 10px" src="https://infinityposters.s3.eu-north-1.amazonaws.com/@Html.DisplayFor(model => model.Path)" alt="Poster image" />
+    <img style="width: 600px; height: 424px; margin-right: 30px; border-radius: 10px"
+         src="https://infinityposters.s3.eu-north-1.amazonaws.com/@Html.DisplayFor(model => model.Path)" alt="Poster image" />
     <dl class="row">
-        <dt class="col-sm-5">
+        <dt class="col-sm-10">
             @Html.DisplayNameFor(model => model.Path)
         </dt>
         <dd class="col-sm-10">
@@ -50,8 +51,11 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Topic.Name)<br />
         </dd>
-        <dt class="col-sm-5">
+        <dt class="col-sm-10">
             <a asp-action="Edit" asp-route-id="@Model.Id">Изменить</a>
+        </dt>
+        <dt class="col-sm-10">
+            <a asp-action="Delete" asp-route-id="@Model.Id">Удалить</a>
         </dt>
         <dd class="dd col-sm-10">
             <a href="/Posters/Index/@Html.DisplayFor(model => model.TopicId)?name=@Html.DisplayFor(model => model.Topic.Name)">Назад к списку</a>

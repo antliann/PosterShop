@@ -125,10 +125,14 @@ namespace PosterShop.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                int topicid = posters.TopicId;
+                return RedirectToAction("Index", "Posters", new { id = topicid, name = _context.Topics.Where(c => c.Id == topicid).FirstOrDefault().Name });
             }
-            ViewData["TopicId"] = new SelectList(_context.Topics, "Id", "Name", posters.TopicId);
-            return View(posters);
+            //ViewData["TopicId"] = new SelectList(_context.Topics, "Id", "Name", posters.TopicId);
+            //return View(posters);
+            int topicId = posters.TopicId;
+            return RedirectToAction("Index", "Posters", new { id = topicId, name = _context.Topics.Where(c => c.Id == topicId).FirstOrDefault().Name });
         }
 
         // GET: Posters/Delete/5
