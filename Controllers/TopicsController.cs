@@ -117,7 +117,7 @@ namespace PosterShop.Controllers
         }
 
         // GET: Topics/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)                   // НУЖНО УДАЛИТЬ ВСЕ ПОСТЕРЫ ВНУТРИ!!!
         {
             if (id == null)
             {
@@ -135,13 +135,24 @@ namespace PosterShop.Controllers
         }
 
         // POST: Topics/Delete/5
-        [HttpPost, ActionName("Delete")]              // добавить удаление вложенный постеров
+        [HttpPost, ActionName("Delete")]
 
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id)                                          // УДАЛЕНИЕ РАБОТАЕТ!
         {
+            foreach (var idishnik in _context.Posters.Where(b => b.TopicId == id).ToList()) {
+
+                var ide = _context.Posters.Where(b => b.TopicId == id).FirstOrDefault().Id;
+                var poster = await _context.Posters.FindAsync(ide);
+
+                _context.Posters.Remove(poster);
+
+                await _context.SaveChangesAsync();
+            }
+
             var topics = await _context.Topics.FindAsync(id);
             _context.Topics.Remove(topics);
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

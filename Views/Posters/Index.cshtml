@@ -54,7 +54,7 @@
 
 <body>
     <a asp-controller="Topics" asp-action="Index" style="font-family: 'Pangolin', cursive; font-size: 1.2vw; color: darkblue">Назад на главную</a>
-    <h1>Постеры по теме "@ViewBag.TopicName"</h1>
+    <h1>Постеры по теме "<b>@ViewBag.TopicName</b>"</h1>
     <div class="three">
         <div class="block" style="text-align: center; display: flex; align-items: center; justify-content: center">
             <a href="/Posters/Create?topicId=@ViewBag.TopicId">
