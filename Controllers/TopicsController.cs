@@ -117,7 +117,7 @@ namespace PosterShop.Controllers
         }
 
         // GET: Topics/Delete/5
-        public async Task<IActionResult> Delete(int? id)                   // НУЖНО УДАЛИТЬ ВСЕ ПОСТЕРЫ ВНУТРИ!!!
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {

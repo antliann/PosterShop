@@ -53,6 +53,15 @@
         margin-bottom: 30px;
         font-size: 50px;
     }
+
+    .bdens{
+        align-items: center;
+        width: 500px;
+    }
+
+    svg{
+        border-radius: 20px;
+    }
 </style>
 
 <body>
@@ -73,11 +82,60 @@
             <div class="block">
                 <br />
                 <p class="topic-name">@Html.DisplayFor(modelItem => item.Name)</p>
-                
+
                 <a asp-action="Edit" asp-route-id="@item.Id"><img class="buttons" src="https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/unnamed.png" alt="Изменить" title="Изменить" /></a>
                 <a asp-action="Details" asp-route-id="@item.Id"><img class="buttons" src="https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/108message-find.png" alt="Инфо" title="Инфо" /></a>
                 <a asp-action="Delete" asp-route-id="@item.Id"><img class="buttons" src="https://infinityposters.s3.eu-north-1.amazonaws.com/Posters/Design/unnamed+(1).png" alt="Удалить" title="Удалить" /></a>
             </div>
         }
     </div>
+    <div style="display: flex">
+        <div id="chart1" class="bdens block" style="height: 312px; width: 500px;"></div>
+        <div id="chart2" class="bdens block" style="height: 312px; width: 550px; margin-left: 15px"></div>
+    </div>
+
+    @section scripts{
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+        <script type="text/javascript">
+            // ДИАГРАММА КОЛИЧЕСТВА
+            google.charts.load('current', { 'packages': ['corechart'] });
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                $.get('/api/Charts/JsonData', function (jsonData) {
+                        data = google.visualization.arrayToDataTable(jsonData, false);
+                    let options = {
+                        title: "Количество постеров по категориям",
+                        width: 494,
+                        height: 300,
+                    };
+                    let chart = new google.visualization.PieChart(document.getElementById('chart1'));
+                    chart.draw(data, options);
+                })
+            }
+        </script>
+
+
+        <script type="text/javascript">
+            // ДИАГРАММА ЦЕН
+            google.charts.load('current', { 'packages': ['corechart'] });
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                $.get('/api/Charts/JsonPrices', function (jsonPrices) {
+                    data = google.visualization.arrayToDataTable((jsonPrices), false);
+                    let options = {
+                        title: 'Средняя цена по теме',
+                        width: 544,
+                        height: 300,
+                        vAxis: { title: 'Цена, грн', minValue: 0 },
+                        legend: 'none'
+                    };
+                    let chart = new google.visualization.ColumnChart(document.getElementById('chart2'));
+                    chart.draw(data, options);
+                })
+            }
+        </script>
+    }
 </body>

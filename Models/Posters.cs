@@ -17,7 +17,7 @@ namespace PosterShop
         [Display(Name = "Путь к изображению")]
         public string Path { get; set; }
 
-        [Required(ErrorMessage = "Поле не может быть пустым!"), Range(0, 100000, ErrorMessage = "Неверная цена")]
+        [Required(ErrorMessage = "Поле не может быть пустым!"), Range(1, 100000, ErrorMessage = "Неверная цена")]
         [Display(Name = "Цена")]
         public int Price { get; set; }
 
