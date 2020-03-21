@@ -118,7 +118,7 @@
 
 
         <script type="text/javascript">
-            // ДИАГРАММА ЦЕН
+            // ДИАГРАММА средних ЦЕН по категории
             google.charts.load('current', { 'packages': ['corechart'] });
             google.charts.setOnLoadCallback(drawChart);
 
@@ -126,7 +126,7 @@
                 $.get('/api/Charts/JsonPrices', function (jsonPrices) {
                     data = google.visualization.arrayToDataTable((jsonPrices), false);
                     let options = {
-                        title: 'Средняя цена по теме',
+                        title: 'Средняя цена постера по теме',
                         width: 544,
                         height: 300,
                         vAxis: { title: 'Цена, грн', minValue: 0 },
