@@ -1,1 +1,1 @@
-This is poster shop's database with interactive design. Images of pages are available in repository
+This is poster shop's database made using MVC library with an interactive design made using HTML/CSS and JS
