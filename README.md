@@ -1,1 +1,1 @@
-This is poster shop's database made using MVC library with an interactive design made using HTML/CSS and JS
+This is poster shop's database interaction interface made using ASP.NET MVC Framework and HTML/CSS
